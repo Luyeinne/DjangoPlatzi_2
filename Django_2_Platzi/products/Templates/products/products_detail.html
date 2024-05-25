@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="producto">{{ products.name }}</h1>
+    <h2>{{ products.description }}</h2>
+    <p>{{ products.category }}</p>
+    <p>{{ productsprice }}</p>
+
+    <img class="imagen"src="{{ products.image.url }}" alt="fotofoto">
+
+{% endblock %}

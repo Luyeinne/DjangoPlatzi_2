@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="login">
+
+        <input type="text" name="username">
+        <input type="text" name="password">
+
+        <button type="submit">Login</button>
+    </form>
+    {% if error_login %}<p class="error">{{ error_login }}</p>{% endif %}
+
+    <h1>Signup</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="signup">
+
+        <input type="text" name="username">
+        <input type="text" name="password">
+
+        <button type="submit">signup</button>
+    </form>
+
+    {% if user_created %}
+    <h2 class="created">{{ user_created }}</h2>
+        {% endif %}
+
+    {% if error_signup %}
+    <p class="error">{{ error_signup }}</p>
+        {% endif %}
+
+{% endblock %}

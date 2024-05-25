@@ -1,4 +1,5 @@
 from django.db import models
+from clients.models import Client
 
 # Create your models here.
 class Products(models.Model):
@@ -10,3 +11,19 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    class Meta:
+        ordering = ('id',)
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(Client, on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Favorite'
+        verbose_name_plural = 'Favorites'
+
+    def __str__(self):
+        return f"{self.user.name}, {self.product.name}"

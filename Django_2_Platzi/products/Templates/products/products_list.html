@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="saludo">Hola</h1>
+
+<h2 class="invitado">
+    {% if user.is_authenticated %}
+        {{user.username}}
+    {% else %}
+        <h3>Hola invitado</h3>
+    {% endif %}
+</h2>
+
+<div>
+
+    <a href="{% url 'userprofiles:logout' %}">Logout</a>
+</div>
+<div>
+    <a href="{% url 'products:new_product' %}">New Products</a>
+</div>
+
+<div>
+    <ul>
+       {% for product in object_list %}
+       <li>
+            <a href="{% url 'products:detail' product.id %}">
+                {{ product.name }} |
+            </a>
+
+        {{ product.description }}
+
+            <img src="{{ product.image.url }}" alt="fotofoto">
+
+       </li>
+
+       {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

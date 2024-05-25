@@ -1,28 +1,47 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HELLO WORLD</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
-<body>
-    <h1 style="color:red">
-    Hola
-    </h1>
-    <ul>
-       {% for pr in product %}
-       <li>
-        {{ pr.name }} |
-        {{ pr.description }}
+{% extends "base.html" %}
 
-        <img src="images/{{ pr.image }}" alt="fotofoto">
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+
+<h1 class="saludo">Hola</h1>
+
+<h2 class="invitado">
+    {% if user.is_authenticated %}
+        {{user.username}}
+    {% else %}
+        <h3>Hola invitado</h3>
+    {% endif %}
+</h2>
+
+<div>
+
+    <a href="{% url 'userprofiles:logout' %}">Logout</a>
+</div>
+<div>
+    <a class="new"href="{% url 'new_product' %}">New Products</a>
+</div>
+
+<div>
+    <ul>
+       {% for product in product_queryset %}
+       <li>
+            <a href="{% url 'product_detail' pk=product.pk %}">
+                {{ product.name }} |
+            </a>
+
+        {{ product.description }}
+
+            <img src="{{ product.image.url }}" alt="fotofoto">
 
        </li>
 
        {% endfor %}
     </ul>
+</div>
 
-</body>
-</html>
+
+{% endblock %}
