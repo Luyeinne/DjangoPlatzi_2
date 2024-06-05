@@ -9,8 +9,12 @@
     <h1 class="producto">{{ products.name }}</h1>
     <h2>{{ products.description }}</h2>
     <p>{{ products.category }}</p>
-    <p>{{ productsprice }}</p>
+    <p>{{ products.price }}</p>
 
-    <img class="imagen"src="{{ products.image.url }}" alt="fotofoto">
+    {% if products.image %}
+        <img class="imagen" src="{{ products.image.url }}" alt="{{ products.description }}">
+    {% else %}
+        <p>Sin imagen</p>
+    {% endif %}
 
 {% endblock %}

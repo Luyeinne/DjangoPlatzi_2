@@ -11,5 +11,5 @@ urlpatterns = [
       'product/new/',
       views.NewProductView.as_view(),
       name='new_product'
-),
+    ),
 ]
