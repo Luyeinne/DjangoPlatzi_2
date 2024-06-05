@@ -34,9 +34,11 @@
             </a>
 
         {{ product.description }}
-
+        {% if product.image %}
             <img src="{{ product.image.url }}" alt="fotofoto">
-
+        {% else %}
+            <p>Sin imagen</p>
+        {% endif %}
        </li>
 
        {% endfor %}

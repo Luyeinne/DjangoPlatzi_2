@@ -11,6 +11,11 @@
     <p>{{ product_object.category }}</p>
     <p>{{ product_object.price }}</p>
 
-    <img class="imagen"src="{{ product_object.image.url }}" alt="fotofoto">
+
+    {% if product_object.image %}
+        <img src="{{ product_object.image.url }}" alt="{{ product_object.description }}">
+    {% else %}
+        <p>Sin imagen</p>
+    {% endif %}
 
 {% endblock %}
