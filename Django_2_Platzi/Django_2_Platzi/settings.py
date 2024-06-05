@@ -30,6 +30,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGOUT_REDIRECT_URL = "/"
+
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "Django_2_Platzi.wsgi.application"
+
+LOGIN_URL = '/login'
 
 
 # Database

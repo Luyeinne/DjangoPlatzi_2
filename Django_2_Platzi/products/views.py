@@ -2,12 +2,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 
 from .models import Products
 from .forms import ProductForm
+# from .mixins import LoginRequiredMixin
 
 
 class ProductList(ListView):
@@ -21,7 +25,7 @@ class ProductList(ListView):
 #     }
 #     return HttpResponse(template.render(context, request))
 
-class ProductDetail(DetailView):
+class ProductDetail(LoginRequiredMixin, DetailView):
     model = Products
 
 # def product_detail(request, pk):
@@ -35,8 +39,7 @@ class ProductDetail(DetailView):
 #     }
 #     return HttpResponse(template.render(context, request))
 
-
-class NewProductView(CreateView):
+class NewProductView(LoginRequiredMixin, CreateView):
     model = Products
     template_name = 'new_product_template.html'
     fields = '__all__'
