@@ -59,7 +59,7 @@ class ProductsTestCase(BaseAuthenticatedTestCase):
         url = f"/product/{self.product.id}/"
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, f"luye me considera {self.product.description}", html=True)
+        self.assertContains(response, f"Luye me considera {self.product.description}", html=True)
 
     def test_view_product_detail_404(self):
         url = "/product/xxx/"
