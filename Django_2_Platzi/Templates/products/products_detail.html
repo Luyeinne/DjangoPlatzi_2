@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="product-detail">
+
+    <h1 class="product">Mi nombre es {{ products.name }}</h1>
+    <h2 class="product1">Luye me considera {{ products.description }}</h2>
+    <p>Soy {{ products.category }}</p>
+    <p class="product2">Mi poder de pelea es {{ products.price }}</p>
+
+
+    {% if products.image %}
+        <img class="image" src="{{ products.image.url }}" alt="{{ products.description }}">
+    {% else %}
+        <p>Sin imagen</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

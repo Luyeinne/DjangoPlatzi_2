@@ -16,15 +16,15 @@ class ProductsTestCase(BaseAuthenticatedTestCase):
         self.create_and_login()
 
         self.product = Products.objects.create(
-            name= "Martina",
-            description = "vieja amiga",
-            category = "mascota",
-            price = "200"
+            name="Martina",
+            description="vieja amiga",
+            category="mascota",
+            price="200"
         )
 
     def test_products_have_name(self):
         martina = Products.objects.get(name="Martina")
-        self.assertEqual(martina.description, "vieja amiga")
+        self.assertEqual(martina.description, self.product.description)
 
 
     def test_create_product(self):
@@ -59,7 +59,7 @@ class ProductsTestCase(BaseAuthenticatedTestCase):
         url = f"/product/{self.product.id}/"
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, self.product.description, html=True)
+        self.assertContains(response, f"Luye me considera {self.product.description}", html=True)
 
     def test_view_product_detail_404(self):
         url = "/product/xxx/"

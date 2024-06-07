@@ -16,7 +16,7 @@ def authentication(request):
                 error_message_signup = "This user already exists. Please try again."
                 return render(
                     request,
-                    'login.html',
+                    'login/login.html',
                     {"error_signup": error_message_signup }
                     )
             else:
@@ -29,7 +29,7 @@ def authentication(request):
             message_user_created = "user created successfully, now log in"
             return render(
                     request,
-                    'login.html',
+                    'login/login.html',
                     {"user_created": message_user_created }
                     )
 
@@ -42,11 +42,11 @@ def authentication(request):
                 error_message = "Invalid username or password. Please try again."
                 return render(
                     request,
-                    'login.html',
+                    'login/login.html',
                     {"error_login": error_message }
                 )
 
-    return render(request, 'login.html', {})
+    return render(request, 'login/login.html', {})
 
 
 def logout_view(request):

@@ -41,7 +41,7 @@ class ProductDetail(LoginRequiredMixin, DetailView):
 
 class NewProductView(LoginRequiredMixin, CreateView):
     model = Products
-    template_name = 'new_product_template.html'
+    # template_name = 'new_product_template.html'
     fields = '__all__'
     success_url = '/'
 
