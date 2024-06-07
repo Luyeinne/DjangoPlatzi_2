@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    <title>
+        {% block page_title %}{% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <div>
+        <a href="/">
+            <img src="{% static 'images/home.png' %}" alt="home" class="home">
+        </a>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+            <h2 class="user-name"> Hola {{user.username}}</h2>
+            <div class="logout-button">
+                <a href="{% url 'userprofiles:logout' %}">Logout</a>
+            </div>
+        {% else %}
+            <h3>Hola invitado</h3>
+            <div class="login-button">
+                <a href="{% url 'userprofiles:authentication' %}">Login</a>
+            </div>
+        {% endif %}
+    </div>
+</head>
+<body>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,63 +1,81 @@
-.saludo {
-    color: blue;
-    font-size: 24px;
-    display: inline-block;
-    margin-right: 20px;
+.product-detail {
+    width: 50%; /* Ancho del div */
+    margin: 0 auto; /* Centra el div horizontalmente */
+    text-align: center; /* Centra el contenido del div */
+    border: 1px solid #ccc; /* Borde para visualización */
+    padding: 20px; /* Espaciado interno */
 }
 
-.invitado {
-    color: green;
-    font-size: 18px;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
+.product {
+    font-size: 2em;
+    color: #0ab724;
     margin-bottom: 10px;
 }
 
-img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 20px;
-}
-
-
-
-.producto {
-    color: blue;
-    font-size: 24px;
-    text-align: center;
-}
-
-h2 {
+.product1 {
     color: green;
     font-size: 18px;
     text-align: center;
 }
 
-p {
+.product2 {
+    font-size: 1em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.image {
+    max-width: 50%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.container {
     text-align: center;
 }
 
-.imagen {
-    width: 300px; /* Ajusta el tamaño de la imagen según tu preferencia */
-    height: 300px; /* Ajusta el tamaño de la imagen según tu preferencia */
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.header {
+    color: rgb(117, 189, 244);
+    font-size: 50px;
+    display: inline-block;
+}
+
+.home {
+    width: 40px;
+}
+
+.animal-image {
+    max-width: 15%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sangria {
+    margin: 70px 0px;
+}
+
+.user-name{
+    color: rgb(117, 189, 244);
+    font-size: 30px;
+    display: inline-block;
 }
